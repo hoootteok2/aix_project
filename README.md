@@ -6,3 +6,33 @@ Members : 이예림
 ----------------
 
 I. Proposal (Option 1)
+======================
+
+
+II. Datasets
+======================
+
+
+
+
+III. Methodology 
+======================
+
+
+
+
+IV. Evaluation & Analysis
+======================
+
+
+
+V. Related Work
+======================
+
+
+VI. Conclusion: Discussion
+======================
+
+
+
+
