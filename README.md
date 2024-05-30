@@ -22,8 +22,7 @@ III. Methodology
 ======================
 * Explaining your choice of algorithms
 
- posenet https://github.com/dusty-nv/jetson-inference
-  
+yolo model사용
 
 * Explaining features
 
