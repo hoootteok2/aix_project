@@ -16,20 +16,34 @@ I. Proposal (Option 1)
 II. Datasets
 ======================================
 - Describing your dataset
-- 
-III. Methodology
+https://public.roboflow.com/object-detection/american-sign-language-letters/1
+https://www.kaggle.com/datasets/grassknoted/asl-alphabet
+https://universe.roboflow.com/david-lee-d0rhs/american-sign-language-letters
+1) explain dataset
+
+2) explain yolov7-object detection
+
+
+III. Methodology & Results
 ========================
+1) 실행 코드(model)
+
+2) algorithm
+
+3) Results
+
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any)
 - 
 IV. Evaluation & Analysis
 =====================
 - Graphs, tables, any statistics (if any)
-
+  1) model accuracy updated
 - 
 V. Related Work (e.g., existing studies)
 ==================
-
+https://public.roboflow.com/object-detection/american-sign-language-letters
+  opencv
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
 - 
 VI. Conclusion: Discussion
