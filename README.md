@@ -13,14 +13,19 @@ I. Proposal (Option 1)
 평범한 이들이 소통하는 방식 이외의 방법으로 소통할 수 있는 가능성을 보여줌으로써, 평등한 인류를 도모하고, 소통을 위한 각자의 방식이 있을 수 있음을 역설하고자 합니다.
 
 ### What do you want to see at the end?
+
 웹캠에서 손동작을 yolov7을 통해 object detection 한 후, 의미를 텍스트로 디스플레이
   
 II. Datasets
 ======================================
 - Describing your dataset
+
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
+
 https://www.kaggle.com/datasets/grassknoted/asl-alphabet
+
 https://universe.roboflow.com/david-lee-d0rhs/american-sign-language-letters
+
 1) explain dataset
 
 2) explain yolov7-object detection
@@ -53,8 +58,11 @@ IV. Evaluation & Analysis
 V. Related Work (e.g., existing studies)
 ==================
 - https://public.roboflow.com/object-detection/american-sign-language-letters
+
 for asl dataset recognition
+
 - opencv
+
 for display algorithm
   
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
