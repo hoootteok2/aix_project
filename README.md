@@ -69,3 +69,37 @@ for display algorithm
 - 
 VI. Conclusion: Discussion
 =======================
+### 세부 일정
+
+#### 6/4, 6/5 : model trial basement for accuracy (조사)
+
+- 6/4 : transfer learning git 정리 후 output 정리 계획
+
+- 6/5 : transfer learning / batch, epoch, lr를 어떻게 적용 시켜서 updated할 지 계획
+- 6/5 : batch, epoch, lr 에 관한 정리할 것
+
+-> batch, epoch, lr조절 단계
+
+(참고 논문 첨부할 것, lr를 조절하지 말고 batch를 조절하라는 논문 : 사전 project를 통해 batch 와 lr를 어느정도 비례관계 시키는게 좋다는 결과 이용할 것)
+
+-> transfer leraning을 통해 조절
+
+-> 각 step으로 인한 변화 data추출 및 비교를 어떻게 할 지 결정
+
+#### 6/6 ~ 14 : model second trial -> updated for high accuracy (goal : over 50)
+
+-> export 할 때 마다 data정리 제발 git에 올려서 정리 꼭 해
+
+- 6/6 : model trials 2, tranfer~ / ble 중 선택해서 ,,,.pt 파일 export할 것
+- 6/7 : model trials 3, tranfer~ / ble 중 선택해서 ,,,.pt 파일 export할 것
+- 6/8, 6/9 : implementing algorithms
+  (알고리즘 문제 없는지 체크하고 model import)
+
+-6/10~6/14 : model trials n updated
+
+
+#### 6/8, 6/9 : implementing algorithms
+
+- 6/8 : dev (scanning, text, video)
+- 6/9 : implementing 
+
