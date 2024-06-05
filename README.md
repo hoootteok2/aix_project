@@ -16,10 +16,10 @@ I. Proposal (Option 1)
 
 (웹캠에서 손동작을 yolov7을 통해 object detection 한 후, 의미를 텍스트로 디스플레이)
   
-II. Datasets
+II. Datasets & Model
 ======================================
 - Describing your dataset
-1) Preparing Dataset
+### 1) Preparing Dataset
 
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
@@ -46,21 +46,58 @@ nc: 26
 names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
-2) YOLOv7
+### 2) YOLOv7
+
+- About YOLOv7
+
+
+
+- Code
+
+우리의 customized dataset을 YOLOv7에 학습시킬 것이며, 코드는 아래와 같다.
+
+```
+# YOLOv7
+!git clone https://github.com/WongKinYiu/yolov7.git
+%cd yolov7
+
+!pip install -r requirements.txt
+```
+
+
+YOLOv7에서 coco dataset으로 pretrained 된 가중치 yolov7.pt를 사용하기 위해 다음과 같이 코드를 작성한다.
+```
+import os
+
+%cd /content/yolov7
+!wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
+```
+model training과 testing 과정은 다음과 같다.
+이때 training 의 batch size, learning rate, epochs는 필요에 따라 수정하며 best.pt를 이용하여 tranfer learning을 통해 high accuracy를 도출한다.
+```
+%cd /content/yolov7
+!python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
+```
 
 
 III. Methodology & Results
 ========================
 1) 실행환경
+2) 
+google colab, anaconda prompt(나중에 버전들 쭉 나열해놓기)
 
+3) 실행코드(prompt/python)
 
-2) 실행코드(prompt/python)
+fine tuning 과정들 쭉
 
 3) algorithm
 
+video code
+
 4) Results
+
 video
-result model
+result model(최종.pt)
 
 
 
@@ -70,8 +107,11 @@ result model
 IV. Evaluation & Analysis
 =====================
 - Graphs, tables, any statistics (if any)
-  1) model accuracy updated graph
+  
+  1) model accuracy
+ 
   2) 
+    
 - 
 V. Related Work (e.g., existing studies)
 ==================
@@ -101,7 +141,7 @@ goal2 : checking
 
 (참고 논문 첨부할 것, lr를 조절하지 말고 batch를 조절하라는 논문 : 사전 project를 통해 batch 와 lr를 어느정도 비례관계 시키는게 좋다는 결과 이용할 것)
 
--> transfer leraning을 통해 조절
+-> transfer leraning을 통해 조절(fine tuning)
 
 -> 각 step으로 인한 변화 data추출 및 비교를 어떻게 할 지 결정
 
