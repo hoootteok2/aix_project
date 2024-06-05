@@ -19,7 +19,7 @@ I. Proposal (Option 1)
 II. Datasets & Model
 ======================================
 - Describing your dataset
-### 1) Preparing Dataset
+#### 1) Preparing Dataset
 
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
@@ -46,15 +46,18 @@ nc: 26
 names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
-### 2) YOLOv7
+(augmentation, scaling,,, 설명 + 이유도 설명)
+(dataset 관련 image 첨부)
+
+#### 2) YOLOv7
 
 - About YOLOv7
 
-
+(yolov7 model 설명)
 
 - Code
 
-우리의 customized dataset을 YOLOv7에 학습시킬 것이며, 코드는 아래와 같다.
+준비된 customized dataset을 YOLOv7에 학습시킬 것이며, 코드는 아래와 같다.
 
 ```
 # YOLOv7
@@ -73,48 +76,90 @@ import os
 !wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 ```
 model training과 testing 과정은 다음과 같다.
-이때 training 의 batch size, learning rate, epochs는 필요에 따라 수정하며 best.pt를 이용하여 tranfer learning을 통해 high accuracy를 도출한다.
+이때 training 의 batch size, learning rate, epochs는 필요에 따라 수정한다. 마찬가지로 필요에 따라 best.pt를 이용하여 tranfer learning을 통해 high accuracy를 도출한다.
 ```
 %cd /content/yolov7
 !python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
 ```
 
+test.py 실행 코드는 다음과 같다. 마찬가지로 추후 필요에 따라 img, batch 또한 변형한다.
+```
+!python test.py --weights runs/train/exp6/weights/best.pt --data dataset/data.yaml --img-size 416 --batch-size 16 --device 0
+```
 
-III. Methodology & Results
+
+
+III. Methodology
 ========================
-1) 실행환경
-2) 
+### tranfer learning & fine tuning
+
+#### 1) Tranfer learning & Fine tuning
+
+
+#### 2) Settings & Codes
+
+- 실행환경
+
 google colab, anaconda prompt(나중에 버전들 쭉 나열해놓기)
 
-3) 실행코드(prompt/python)
+gpu(tpu2?? 이미지 첨부)
+
+
+- 실행코드(prompt/python)
 
 fine tuning 과정들 쭉
 
-3) algorithm
 
-video code
+#### 3) Trials
 
-4) Results
+-Trial 1
 
-video
-result model(최종.pt)
+(이미지 추가 첨부 후 분석)
+
+
+
+<img src="https://github.com/hoootteok2/aix_project/assets/168548944/f29cf099-5682-440c-a82f-d982756b8a5f" width="40%">
+
+
+<img src="https://github.com/hoootteok2/aix_project/assets/168548944/a1745343-2930-4ecb-9e1a-f03c04acf9d6" width="40%">
+<img src="https://github.com/hoootteok2/aix_project/assets/168548944/92fcaf47-7158-416c-a4df-438f6ea91e68" width="40%">
+
+왼쪽의 이미지는 labels, 오른쪽의 이미지는 preds
+
+
+
+#### 4) algorithm
+
+detect.py (for video)
+
+
+
 
 
 
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any)
-- 
-IV. Evaluation & Analysis
+
+
+IV.  Results & Evaluation, Analysis
 =====================
+
 - Graphs, tables, any statistics (if any)
   
-  1) model accuracy
- 
-  2) 
+####  1) Results
+
+video (url)
+
+
+best.pt (graph, tables..)
+
+
+####  2) Evaluation & Analysis
     
-- 
+
 V. Related Work (e.g., existing studies)
 ==================
+
 - https://public.roboflow.com/object-detection/american-sign-language-letters
 
 for asl dataset recognition
@@ -124,9 +169,12 @@ for asl dataset recognition
 for display algorithm
   
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
-- 
+
+
+
 VI. Conclusion: Discussion
 =======================
+
 ### 세부 일정
 
 #### 6/4, 6/5 : model trial basement for accuracy (조사)
