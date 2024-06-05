@@ -18,8 +18,8 @@ I. Proposal (Option 1)
   
 II. Datasets & Model
 ======================================
-- Describing your dataset
-#### 1) Preparing Dataset
+
+### 1) Preparing Dataset
 
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
@@ -35,8 +35,12 @@ Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처
 !unzip roboflow.zip -d ./dataset
 !rm roboflow.zip
 ```
-이 ASL데이터셋은 총 1728장의 이미지이며 이 데이터셋의 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다다.
-이 데이터셋의 class는 data.yaml을 통해 총 26개의 class가 있다.
+이 ASL데이터셋은 총 1728장의 이미지이며 아래 이미지와 같이 이 데이터셋의 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다.
+
+<img src="https://github.com/hoootteok2/aix_project/assets/168548944/356e20d7-9cf3-4005-bb98-07d03024acb9" width="50%">
+
+
+또한 dataset의 class는 data.yaml을 통해 확인하면 총 26개, 알파벳의 개수만큼 class가 있다.
 
 ```
 train: ../train/images
@@ -46,16 +50,19 @@ nc: 26
 names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
+**- Augmentation**
+
+
 (augmentation, scaling,,, 설명 + 이유도 설명)
 (dataset 관련 image 첨부)
 
-#### 2) YOLOv7
+### 2) YOLOv7 (6/6)
 
-- About YOLOv7
+**- About YOLOv7**
 
 (yolov7 model 설명)
 
-- Code
+**- Code**
 
 준비된 customized dataset을 YOLOv7에 학습시킬 것이며, 코드는 아래와 같다.
 
@@ -88,15 +95,14 @@ test.py 실행 코드는 다음과 같다. 마찬가지로 추후 필요에 따�
 ```
 
 
-
 III. Methodology
 ========================
 ### tranfer learning & fine tuning
 
-#### 1) Tranfer learning & Fine tuning
+### 1) Tranfer learning & Fine tuning (6/7)
 
 
-#### 2) Settings & Codes
+### 2) Settings & Codes (6/8)
 
 - 실행환경
 
@@ -110,9 +116,9 @@ gpu(tpu2?? 이미지 첨부)
 fine tuning 과정들 쭉
 
 
-#### 3) Trials
+### 3) Trials
 
--Trial 1
+-Trial 1 (6/5)
 
 (이미지 추가 첨부 후 분석)
 
@@ -127,8 +133,15 @@ fine tuning 과정들 쭉
 왼쪽의 이미지는 labels, 오른쪽의 이미지는 preds
 
 
+- Trial 2 : fine tuning (6/6)
 
-#### 4) algorithm
+
+
+- Trial 3 : optimizing hyper parameters (6/7)
+
+
+
+### 4) algorithm (시간되면면)
 
 detect.py (for video)
 
@@ -146,7 +159,7 @@ IV.  Results & Evaluation, Analysis
 
 - Graphs, tables, any statistics (if any)
   
-####  1) Results
+###  1) Results (6/7)
 
 video (url)
 
@@ -154,7 +167,7 @@ video (url)
 best.pt (graph, tables..)
 
 
-####  2) Evaluation & Analysis
+###  2) Evaluation & Analysis (6/7, 6/17)
     
 
 V. Related Work (e.g., existing studies)
@@ -172,37 +185,10 @@ for display algorithm
 
 
 
-VI. Conclusion: Discussion
+VI. Conclusion: Discussion (6/17)
 =======================
 
-### 세부 일정
 
-#### 6/4, 6/5 : model trial basement for accuracy (조사)
-
-goal1 : improving & comparing the results
-goal2 : checking
-
-- 6/5 : transfer learning / batch, epoch, lr를 어떻게 적용 시켜서 updated할 지 계획
-- 6/5 : batch, epoch, lr 에 관한 정리할 것
-
--> batch, epoch, lr조절 단계
-
-(참고 논문 첨부할 것, lr를 조절하지 말고 batch를 조절하라는 논문 : 사전 project를 통해 batch 와 lr를 어느정도 비례관계 시키는게 좋다는 결과 이용할 것)
-
--> transfer leraning을 통해 조절(fine tuning)
-
--> 각 step으로 인한 변화 data추출 및 비교를 어떻게 할 지 결정
-
-#### 6/6 ~ 14 : model second trial -> updated for high accuracy (goal : over 50)
-
--> export 할 때 마다 data정리 제발 git에 올려서 정리 꼭 해
-
-- 6/6 : model trials 2, tranfer~ / ble 중 선택해서 ,,,.pt 파일 export할 것
-- 6/7 : model trials 3, tranfer~ / ble 중 선택해서 ,,,.pt 파일 export할 것
-- 6/8, 6/9 : implementing algorithms
-  (알고리즘 문제 없는지 체크하고 model import)
-
--6/10~6/14 : model trials n updated
 
 
 #### 6/8, 6/9 : implementing algorithms
