@@ -141,7 +141,7 @@ fine tuning 과정들 쭉
 
 
 
-### 4) algorithm (시간되면면)
+### 4) algorithm (시간되면)
 
 detect.py (for video)
 
