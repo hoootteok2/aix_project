@@ -56,7 +56,7 @@ names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O
 (augmentation, scaling,,, 설명 + 이유도 설명)
 (dataset 관련 image 첨부)
 
-### 2) YOLOv7 (6/6)
+### 2) YOLOv7
 
 **- About YOLOv7**
 
@@ -97,18 +97,21 @@ test.py 실행 코드는 다음과 같다. 마찬가지로 추후 필요에 따�
 
 III. Methodology
 ========================
-### tranfer learning & fine tuning
+### tranfer learning & hyper parameters tuning
 
-### 1) Tranfer learning & Fine tuning (6/7)
+### 1) Tranfer learning
 
 
-### 2) Settings & Codes (6/8)
+### 2) hyper parameters tuning
+
+
+### 3) Settings & Codes 
 
 - 실행환경
 
 google colab, anaconda prompt(나중에 버전들 쭉 나열해놓기)
 
-gpu(tpu2?? 이미지 첨부)
+gpu(tpu2 이미지 첨부)
 
 
 - 실행코드(prompt/python)
@@ -118,7 +121,7 @@ fine tuning 과정들 쭉
 
 ### 3) Trials
 
--Trial 1 (6/5)
+-Trial 1 : transfer learning using yolov7.pt
 
 (이미지 추가 첨부 후 분석)
 
@@ -133,11 +136,10 @@ fine tuning 과정들 쭉
 왼쪽의 이미지는 labels, 오른쪽의 이미지는 preds
 
 
-- Trial 2 : fine tuning (6/6)
+- Trial 2 : hyper parameter tuings (reference. don't decay~)
 
 
 
-- Trial 3 : optimizing hyper parameters (6/7)
 
 
 
@@ -182,6 +184,10 @@ for asl dataset recognition
 for display algorithm
   
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
+
+Hyper parameter tuning
+Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
+
 
 
 
