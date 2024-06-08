@@ -14,7 +14,7 @@ I. Proposal (Option 1)
 
 ### What do you want to see at the end?
 
-(웹캠에서 손동작을 yolov7을 통해 object detection 한 후, 의미를 텍스트로 디스플레이)
+웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임의 의미를 텍스트로 디스플레이하는 것이 목적이다.
   
 II. Datasets & Model
 ======================================
@@ -50,7 +50,7 @@ nc: 26
 names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
-**- Augmentation**
+**- About Augmentation**
 
 
 (augmentation, scaling,,, 설명 + 이유도 설명)
@@ -62,50 +62,19 @@ names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O
 
 (yolov7 model 설명)
 
-**- Code**
-
-준비된 customized dataset을 YOLOv7에 학습시킬 것이며, 코드는 아래와 같다.
-
-```
-# YOLOv7
-!git clone https://github.com/WongKinYiu/yolov7.git
-%cd yolov7
-
-!pip install -r requirements.txt
-```
-
-
-YOLOv7에서 coco dataset으로 pretrained 된 가중치 yolov7.pt를 사용하기 위해 다음과 같이 코드를 작성한다.
-```
-import os
-
-%cd /content/yolov7
-!wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
-```
-model training과 testing 과정은 다음과 같다.
-이때 training 의 batch size, learning rate, epochs는 필요에 따라 수정한다. 마찬가지로 필요에 따라 best.pt를 이용하여 tranfer learning을 통해 high accuracy를 도출한다.
-```
-%cd /content/yolov7
-!python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
-```
-
-test.py 실행 코드는 다음과 같다. 마찬가지로 추후 필요에 따라 img, batch 또한 변형한다.
-```
-!python test.py --weights runs/train/exp6/weights/best.pt --data dataset/data.yaml --img-size 416 --batch-size 16 --device 0
-```
 
 
 III. Methodology
 ========================
-### tranfer learning & hyper parameters tuning
+### approving weights methods
 
-### 1) Tranfer learning
-
-
-### 2) hyper parameters tuning
+### 1) Tranfer learning & fine tuning (이론)
 
 
-### 3) Settings & Codes 
+### 2) hyper parameters tuning (이론)
+
+
+### 3) Settings & Codes - hyper parameter tunings with transfer learning
 
 - 실행환경
 
@@ -114,38 +83,9 @@ google colab, anaconda prompt(나중에 버전들 쭉 나열해놓기)
 gpu(tpu2 이미지 첨부)
 
 
-- 실행코드(prompt/python)
+- 실행코드(prompt/python) - 간단하게
 
-fine tuning 과정들 쭉
-
-
-### 3) Trials
-
--Trial 1 : transfer learning using yolov7.pt
-
-(이미지 추가 첨부 후 분석)
-
-
-
-<img src="https://github.com/hoootteok2/aix_project/assets/168548944/f29cf099-5682-440c-a82f-d982756b8a5f" width="40%">
-
-
-<img src="https://github.com/hoootteok2/aix_project/assets/168548944/a1745343-2930-4ecb-9e1a-f03c04acf9d6" width="40%">
-<img src="https://github.com/hoootteok2/aix_project/assets/168548944/92fcaf47-7158-416c-a4df-438f6ea91e68" width="40%">
-
-왼쪽의 이미지는 labels, 오른쪽의 이미지는 preds
-
-
-- Trial 2 : hyper parameter tuings (reference. don't decay~)
-
-
-
-
-
-
-### 4) algorithm (시간되면)
-
-detect.py (for video)
+hyper parameter tuning은 batch size 조절
 
 
 
@@ -161,16 +101,15 @@ IV.  Results & Evaluation, Analysis
 
 - Graphs, tables, any statistics (if any)
   
-###  1) Results (6/7)
+###  Results 
 
-video (url)
-
-
-best.pt (graph, tables..)
+-final video (url)
 
 
-###  2) Evaluation & Analysis (6/7, 6/17)
-    
+-analysis of hyper~ / best.pt (graph, tables..) : batch size에 따른 결과들 분석석
+
+
+
 
 V. Related Work (e.g., existing studies)
 ==================
@@ -194,11 +133,4 @@ Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the l
 VI. Conclusion: Discussion (6/17)
 =======================
 
-
-
-
-#### 6/8, 6/9 : implementing algorithms
-
-- 6/8 : dev (scanning, text, video)
-- 6/9 : implementing 
 
