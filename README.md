@@ -16,7 +16,7 @@ I. Proposal (Option 1)
 
 웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임의 의미를 텍스트로 디스플레이하는 것이 목적이다.
   
-II. Datasets & Model
+II. Datasets
 ======================================
 
 ### 1) Preparing Dataset
@@ -50,28 +50,23 @@ nc: 26
 names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
-**- About Augmentation**
-
+### 2) Data Augmentatino
 
 (augmentation, scaling,,, 설명 + 이유도 설명)
 (dataset 관련 image 첨부)
-
-### 2) YOLOv7
-
-**- About YOLOv7**
-
-(yolov7 model 설명)
 
 
 
 III. Methodology
 ========================
-### approving weights methods
+### model & approving weights methods
 
-### 1) Tranfer learning & fine tuning (이론)
+### 1) YOLOv7 (이론)
 
 
-### 2) hyper parameters tuning (이론)
+### 2) transfer learning & hyper parameters tuning (이론)
+
+이때, hyper parameter tuning과정은 논문 인용할 것.
 
 
 ### 3) Settings & Codes - hyper parameter tunings with transfer learning
@@ -90,16 +85,8 @@ hyper parameter tuning은 batch size 조절
 
 
 
-
-
-- Explaining your choice of algorithms (methods)
-- Explaining features (if any)
-
-
 IV.  Results & Evaluation, Analysis
 =====================
-
-- Graphs, tables, any statistics (if any)
   
 ###  Results 
 
