@@ -2,8 +2,9 @@ Title: YOLOv7을 이용한 수어 번역기
 ==========
 Members
 ===========
-* 송서빈(융합전자공학부) : skmssb@hanyang.ac.kr
-* 이예림
+* 송서빈(융합전자공학부/2020059189) : skmssb@hanyang.ac.kr
+* 이예림(연극영화과/2018034057) : sdyerim@naver.com
+
 
 I. Proposal (Option 1)
 =============================
