@@ -102,6 +102,8 @@ IV.  Results & Evaluation, Analysis
 V. Related Work (e.g., existing studies)
 ==================
 
+- Tools, libraries, blogs, or any documentation that you have used to do this project.
+
 - https://public.roboflow.com/object-detection/american-sign-language-letters
 
 for asl dataset recognition
@@ -110,10 +112,11 @@ for asl dataset recognition
 
 for display algorithm
   
-- Tools, libraries, blogs, or any documentation that you have used to do this project.
+
+- Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
 
 Hyper parameter tuning
-Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
+
 
 
 
