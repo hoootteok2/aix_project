@@ -22,14 +22,19 @@ II. Datasets
 
 ### 1) Preparing Dataset
 
+* #### About ASL
+
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
 ASL이란 American Sign Language로, 미국과 캐나다에 살고 있는 농인들을 위한 수어이다. 
 우리는 이 ASL image datasets을 Roboflow에서 제공하는 것으로 사용했다.
 Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이므로 본 프로젝트에서 유연하게 데이터셋을 이용할 수 있다.
-따라서, 우리는 이 사이트에서 제공되는 기능 augmentation output을 3으로 설정하여 데이터를 준비하였다.
+따라서, 우리는 이 사이트에서 제공되는 기능 augmentation output을 3으로 설정하여 데이터를 준비하였다. 아래 이미지는 해당 dataset의 예시 이미지이다.
 
-아래는 구글colab을 사용하여 데이터셋을 준비하는 과정이다.
+<img width="572" alt="dataset예시" src="https://github.com/hoootteok2/aix_project/assets/168548944/359d2d10-8288-4392-9f80-96a8896c70c3" width="50%">
+
+
+아래 코드는 구글colab을 이용하여 데이터셋을 준비하는 과정이다.
 
 ```
 # dataset download from ROBOFLOW
@@ -37,7 +42,10 @@ Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처
 !unzip roboflow.zip -d ./dataset
 !rm roboflow.zip
 ```
-이 ASL데이터셋은 총 1728장의 이미지이며 아래 이미지와 같이 이 데이터셋의 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다.
+
+* #### Datasets Overview
+
+이 데이터셋은 총 1728장의 이미지이며 아래 이미지와 같이 이 데이터셋의 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다.
 
 <img src="https://github.com/hoootteok2/aix_project/assets/168548944/356e20d7-9cf3-4005-bb98-07d03024acb9" width="50%">
 
