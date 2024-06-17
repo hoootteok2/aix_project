@@ -140,7 +140,7 @@ cudnn 8.5.0
 
 - Codes
 
-Methodology의 hyperparameter tuning에 따라, learning rate 를 0.001 고정, batch size를 증가시켜 다음 train.py를 실행시킨다.
+Methodology의 hyperparameter tuning에 따라, learning rate 를 0.01 고정, batch size를 증가시켜 다음 train.py를 실행시킨다.
 
 ```
 !python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
@@ -148,15 +148,24 @@ Methodology의 hyperparameter tuning에 따라, learning rate 를 0.001 고정, 
 
 
 
-IV.  Results & Evaluation, Analysis
+IV.  Results & Evaluation & Analysis
 =====================
   
 ###  Results 
 
--final video (url)
+- final video (url)
 
 
--analysis of hyper~ / best.pt (graph, tables..) : batch size에 따른 결과들 분석석
+### Evaluation & Analysis
+
+ learning rate를 0.01, epochs로 fiexed, batch size 8, 16 두 가지 경우를 비교한다.
+왼쪽은 batch size 8의 test.py의 결과, 오른쪽은 batch size 16의 test.py결과로 고정한다.
+
+- Confusion Matrix
+
+혼돈 행렬 Confusion Matrix는 모델의 예측 결과와 실제 결과를 비교한 표로, 대각선이 정확히 예측된 샘플의 비율이다. 해당 값이 높을수록 클래스를 정확히 예측했다는 의미이며 비대각선 요소가 많을 수록 잘못 예측도미을 나타낸다.
+
+<img width="834" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/ffc70b73-2477-45b3-8de4-61413b9896e1">
 
 
 
