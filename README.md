@@ -15,7 +15,7 @@ I. Proposal (Option 1)
 
 ### What do you want to see at the end?
 
-웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임의 의미를 텍스트로 디스플레이하는 것이 목적이다.
+웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임을 object detection하는 것이다.
   
 II. Datasets
 ======================================
@@ -24,7 +24,8 @@ II. Datasets
 
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
-Roboflow에서 제공하는 American Sign Language Letters 데이터셋을 사용했다.
+ASL이란 American Sign Language로, 미국과 캐나다에 살고 있는 농인들을 위한 수어이다. 
+우리는 이 ASL image datasets을 Roboflow에서 제공하는 것으로 사용했다.
 Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이므로 본 프로젝트에서 유연하게 데이터셋을 이용할 수 있다.
 따라서, 우리는 이 사이트에서 제공되는 기능 augmentation output을 3으로 설정하여 데이터를 준비하였다.
 
