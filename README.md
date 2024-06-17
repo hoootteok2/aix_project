@@ -25,7 +25,7 @@ II. Datasets
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
 Roboflow에서 제공하는 American Sign Language Letters 데이터셋을 사용했다.
-Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이다. 
+Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이므로 본 프로젝트에서 유연하게 데이터셋을 이용할 수 있다.
 따라서, 우리는 이 사이트에서 제공되는 기능 augmentation output을 3으로 설정하여 데이터를 준비하였다.
 
 아래는 구글colab을 사용하여 데이터셋을 준비하는 과정이다.
