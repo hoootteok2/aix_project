@@ -45,25 +45,28 @@ Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처
 
 * #### Datasets Overview
 
-이 데이터셋은 총 1728장의 이미지이며 아래 이미지와 같이 이 데이터셋의 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다.
+이 데이터셋은 총 1728장의 이미지이며 아래 이미지와 같이 Train/Test Split은 Train 1512, Valid 144, Test 72로 구성되어 있다.
 
 <img src="https://github.com/hoootteok2/aix_project/assets/168548944/356e20d7-9cf3-4005-bb98-07d03024acb9" width="50%">
 
 
-또한 dataset의 class는 data.yaml을 통해 확인하면 총 26개, 알파벳의 개수만큼 class가 있다.
+또한 dataset의 data.yaml 구성은 classes 총 26개, 알파벳의 개수로 하였다.
 
 ```
 train: ../train/images
 val: ../valid/images
 
 nc: 26
-names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+names: ['A', 'B', 'C', 'D]
 ```
 
-### 2) Data Augmentatino
+아래 막대 그래프는 train datasets 1512장의 각 class 마다 존재하는 이미지들의 수이다.
+<img width="617" alt="trainset" src="https://github.com/hoootteok2/aix_project/assets/168548944/99141172-fc1c-4865-9446-f6ffd26a1a73" width="30%">
 
-(augmentation, scaling,,, 설명 + 이유도 설명)
-(dataset 관련 image 첨부)
+### 2) Data Augmentation
+
+
+
 
 
 
