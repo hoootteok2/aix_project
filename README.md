@@ -12,6 +12,8 @@ Members
 
 발표 영상
 ==========
+https://youtu.be/OJhZf3OWHuY
+
 
 Results Video
 ==========
