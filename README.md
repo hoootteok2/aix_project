@@ -183,7 +183,7 @@ https://blog.roboflow.com/yolov7-breakdown/
 
 - for ASL_detection.py
 
-opencv
+opencv, torch
 
 - Hyper parameter tuning
 
