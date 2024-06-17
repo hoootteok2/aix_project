@@ -33,7 +33,6 @@ Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처
 
 <img width="572" alt="dataset예시" src="https://github.com/hoootteok2/aix_project/assets/168548944/359d2d10-8288-4392-9f80-96a8896c70c3" width="50%">
 
-
 아래 코드는 구글colab을 이용하여 데이터셋을 준비하는 과정이다.
 
 ```
@@ -50,23 +49,20 @@ Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처
 <img src="https://github.com/hoootteok2/aix_project/assets/168548944/356e20d7-9cf3-4005-bb98-07d03024acb9" width="50%">
 
 
+
 또한 dataset의 data.yaml 구성은 classes 총 26개, 알파벳의 개수로 하였다.
 
 ```
-train: ../train/images
-val: ../valid/images
+train: datasets/asl/train/images
+val: datasets/asl/valid/images
+test: datasets/asl/test/images
 
 nc: 26
-names: ['A', 'B', 'C', 'D]
+names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 ```
 
 아래 막대 그래프는 train datasets 1512장의 각 class 마다 존재하는 이미지들의 수이다.
 <img width="617" alt="trainset" src="https://github.com/hoootteok2/aix_project/assets/168548944/99141172-fc1c-4865-9446-f6ffd26a1a73" width="30%">
-
-### 2) Data Augmentation
-
-
-
 
 
 
@@ -74,10 +70,30 @@ III. Methodology
 ========================
 ### model & approving weights methods
 
-### 1) YOLOv7 (이론)
+### 1) YOLOv7
+
+<img width="551" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/84a35333-b71c-4ffc-b9d3-ef74be2ee82f">
+
+YOLO(You Only Look Once)는 딥러닝 실시간 객체 탐지 모델로 이미지를 처리하여 객체를 탐지하고 분류하는 모델이다. 이 모델의 주요 특징은 실시간 객체 탐지가 가능하며 정밀도가 높은 점이 있다.
+
+YOLOv7의 model architecture를 간단히 설명하면 다음과 같다.
+
+- input layer 이미지 입력
+- Backbone Network 특징 추출하는 신경망으로 이미지의 특징을 추출
+- Neck Network에서 다양한 스케일의 특징들을 결합하여 객체의 크기와 위치를 파악
+- Head Network에서 실제로 객체를 탐지하고 분류, 예측
+- Output Layer에서 최종 탐지된 결과를 출력
+
+이와 같은 특징은 아래 그래프아 같이 YOLOv7이 다른 모델들에 비해 높은 정확도와 속도를 보여줄 수 있게 되었다.
+
+![image](https://github.com/hoootteok2/aix_project/assets/168548944/7b091b40-57f3-4a47-8869-6f9f4d94d509)
 
 
-### 2) transfer learning & hyper parameters tuning (이론)
+
+
+
+
+### 2) hyper parameters tuning (이론)
 
 이때, hyper parameter tuning과정은 논문 인용할 것.
 
@@ -111,29 +127,30 @@ IV.  Results & Evaluation, Analysis
 
 
 
-V. Related Work (e.g., existing studies)
+V. Related Work
 ==================
 
-- Tools, libraries, blogs, or any documentation that you have used to do this project.
+- for asl dataset recognition
 
-- https://public.roboflow.com/object-detection/american-sign-language-letters
+https://public.roboflow.com/object-detection/american-sign-language-letters
 
-for asl dataset recognition
+- for YOLOv7 recognition 
 
-- opencv
+https://www.plugger.ai/blog/yolov7-architecture-explanation
 
-for display algorithm
-  
+https://blog.roboflow.com/yolov7-breakdown/
 
-- Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
+- for display algorithm
 
-Hyper parameter tuning
+opencv
+
+- Hyper parameter tuning
+
+ Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
 
 
 
-
-
-VI. Conclusion: Discussion (6/17)
+VI. Conclusion: Discussion
 =======================
 
 
