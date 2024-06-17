@@ -29,7 +29,7 @@ I. Proposal (Option 1)
 
 ### What do you want to see at the end?
 
-웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임을 인식식하는 것이다.
+웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임을 인식하는 것이다.
   
 II. Datasets
 ======================================
