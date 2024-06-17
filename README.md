@@ -88,14 +88,29 @@ YOLOv7의 model architecture를 간단히 설명하면 다음과 같다.
 
 ![image](https://github.com/hoootteok2/aix_project/assets/168548944/7b091b40-57f3-4a47-8869-6f9f4d94d509)
 
+특히, YOLOv7은 이전 YOLO 버전들과 다른 특이 기술적 개선 사항들이 존재하는데 그 중에 가장 대표적으로 ELAN이 있다.
+
+<img width="615" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/fcd0768c-c406-4ed0-8306-25475d6499df">
+
+ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율적인 기술이다. ELAN은 위 그림과 같이 3 * 3 과 1 * 1 컨볼루션 레이어를 사용하는데 이 블록 내부의 여려 경로들을 통해 특징을 동시에 처리할 수 있어서 연산 효율성을 높일 수 있게 된다. 또한 CSP(Cross Stage Partial Connections)을 사용하여 일부 레이어의 연결을 분리하는데 이는 계산 비용을 줄이는 동시에 메모리 사용량을 최적화하고 학습 속도를 개선한다.
 
 
+### 2) hyper parameters tuning
 
+딥러닝 모델의 성능을 최적화하기 위해 하이퍼파라미터를 조절하는 과정을 겪는다. 이 값들은 사용자가 직접 수정해야 하는 수치인 것이 특징이다. 대표적인 하이퍼파라미터들은 다음과 같다.
 
+- Learning Rate : 가중치 업데이트 하는 속도
+  
+- Batch Size : 한 번에 학습하는 데이터 샘플의 수
 
-### 2) hyper parameters tuning (이론)
+- Epochs : 전체 데이터 셋 학 반복 횟수
 
-이때, hyper parameter tuning과정은 논문 인용할 것.
+우리가 진행할 프로젝트에서는 Learning Rate를 유지하며 Batch size를 증가시키는 방법으로 선택할 것이다.
+이는 상기 논문(Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.)을 기반으로 진행된다.
+
+![image](https://github.com/hoootteok2/aix_project/assets/168548944/fc888fe5-8bd3-4c2b-8a46-6da92d6584aa)
+
+일반적으로 하이퍼파라미터 튜닝은 batch size를 고정하고 learning rate를 줄이는 방법을 사용하는데 이와 다르게 learning rate를 고정하고 batch size를 키우는 방법을 선택하면 위 그림과 같이 업데이트 할 parameter update수가 적어지면서 동시에 짧은 시간 내에 테스트의 정확도를 크게 변화 없이 빠르게 학습할 수 있다.
 
 
 ### 3) Settings & Codes - hyper parameter tunings with transfer learning
