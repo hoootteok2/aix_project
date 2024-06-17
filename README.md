@@ -8,7 +8,7 @@ Members
 
 * 이예림(연극영화과/2018034057) sdyerim@naver.com
   
-: 참고 자료 조사, 코드 작성 및 검토, 발표 대본 준비 
+: 참고 자료 조사및 검, 코드 작성 및 검토
 
 발표 영상
 ==========
@@ -27,7 +27,7 @@ I. Proposal (Option 1)
 
 ### What do you want to see at the end?
 
-웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임을 object detection하는 것이다.
+웹캠에서 손동작을 입력하여 이 손을 yolov7을 통해 object detection 한 후, 손의 움직임을 인식식하는 것이다.
   
 II. Datasets
 ======================================
@@ -163,7 +163,7 @@ ASL_detection.py를 실행시켰으며 ASL 제스처 중 랜덤함 6가지 제�
 
 - Confusion Matrix
 
-혼돈 행렬 Confusion Matrix는 모델의 예측 결과와 실제 결과를 비교한 표로, 대각선이 정확히 예측된 샘플의 비율이다. 해당 값이 높을수록 클래스를 정확히 예측했다는 의미이며 비대각선 요소가 많을 수록 잘못 예측도미을 나타낸다.
+혼돈 행렬 Confusion Matrix는 모델의 예측 결과와 실제 결과를 비교한 표로, 대각선이 정확히 예측된 샘플의 비율이다. 해당 값이 높을수록 클래스를 정확히 예측했다는 의미이며 비대각선 요소가 많을 수록 잘못 예측됨을 나타낸다.
 
 <img width="834" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/ffc70b73-2477-45b3-8de4-61413b9896e1">
 
