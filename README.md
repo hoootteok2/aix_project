@@ -155,6 +155,8 @@ IV.  Results & Evaluation & Analysis
 
 https://youtu.be/Mds_EWV29I0
 
+웹캠에서 손 동작을 인식 시켜 랜덤한 6가지 문자 Y, V, W, L, R, I의 시현 영상이다.
+
 
 ### 2) Evaluation & Analysis
 
