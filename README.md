@@ -114,8 +114,16 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 
 일반적으로 하이퍼파라미터 튜닝은 batch size를 고정하고 learning rate를 줄이는 방법을 사용하는데 이와 다르게 learning rate를 고정하고 batch size를 키우는 방법을 선택하면 위 그림과 같이 업데이트 할 parameter update수가 적어지면서 동시에 짧은 시간 내에 테스트의 정확도를 크게 변화 없이 빠르게 학습할 수 있다.
 
+### 3) Transfer Learning
 
-### 3) Settings & Codes
+![image](https://github.com/hoootteok2/aix_project/assets/168548944/fe381e92-4784-4180-be54-37c261bb9c87)
+
+전이학습 Transfer Learning이란 이미 학습된 모델을 기반으로 새로운 데이터 셋에 재학습 시키는 방법이다. 이는 모델을 처음부터 학습하는 것보다 더 빠르고 효율적으로 학습할 수 있게 해준다. 이 프로젝트는 COCO dataset 으로 pretrained된 yolov7.pt 가중치를 이용할 것이다.
+
+이 외에도, output layer를 삭제 및 수정하거나 기존 layer들의 가중치들을 고정시키는 방법을 통하여 모델을 효율적으로 학습시킬 수 있다.
+
+
+### 4) Settings & Codes
 
 - Settings
 
@@ -133,6 +141,10 @@ cudnn 8.5.0
 - Codes
 
 Methodology의 hyperparameter tuning에 따라, learning rate 를 0.001 고정, batch size를 증가시켜 다음 train.py를 실행시킨다.
+
+```
+!python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
+```
 
 
 
