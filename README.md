@@ -128,6 +128,16 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 웹캠에서 손 동작을 인식 시켜 랜덤한 6가지 문자 Y, V, W, L, R, I의 시현 영상이다.
 
 
+IV. Results & Evaluation & Analysis
+========================
+
+### 1) Results
+
+https://youtu.be/Mds_EWV29I0?si=EFwF-B9OAF_5ZHXp
+
+ASL 제스처 중 랜덤함 6가지 제스처를 웹캠에 인식시켰다. 인식시킨 제스처는 Y, V, W, L, R, I 이다.
+
+
 ### 2) Evaluation & Analysis
 
  learning rate를 0.01, epochs로 fiexed, batch size 8, 16 두 가지 경우를 비교한다.
