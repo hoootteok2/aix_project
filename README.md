@@ -37,7 +37,7 @@ https://public.roboflow.com/object-detection/american-sign-language-letters/1
 ASL이란 American Sign Language로, 미국과 캐나다에 살고 있는 농인들을 위한 수어이다. 
 우리는 이 ASL image datasets을 Roboflow에서 제공하는 것으로 사용했다.
 Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이므로 본 프로젝트에서 유연하게 데이터셋을 이용할 수 있다.
-따라서, 우리는 이 사이트에서 제공되는 기능 augmentation output을 3으로 설정하여 데이터를 준비하였다. 아래 이미지는 해당 dataset의 예시 이미지이다.
+아래 이미지는 해당 dataset의 예시 이미지이다.
 
 <img width="572" alt="dataset예시" src="https://github.com/hoootteok2/aix_project/assets/168548944/359d2d10-8288-4392-9f80-96a8896c70c3" width="50%">
 
@@ -118,14 +118,22 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 
 ![image](https://github.com/hoootteok2/aix_project/assets/168548944/fc888fe5-8bd3-4c2b-8a46-6da92d6584aa)
 
-일반적으로 하이퍼파라미터 튜닝은 batch size를 고정하고 learning rate를 줄이는 방법을 사용하는데 이와 다르게 learning rate를 고정하고 batch size를 키우는 방법을 선택하면 위 그림과 같이 업데이트 할 parameter update수가 적어지면서 동시에 짧은 시간 내에 테스트의 정확도를 크게 변화 없이 빠르게 학습할 수 있다.
+일반적으로 하이퍼파라미터 튜닝은 batch size를 고정하고 learning rate를 줄이는 방법을 사용하는데 이와 다르게 learning rate를 고정하고 batch size를 키우는 방법을 선택하면 위 그림과 같이 업데이트 할 parameter update수가 적어지면서 동시에 짧은 시간 내에 테스트의 정확도를 크게 변화 없이 빠르게 학습할 수 있다. 또한 learning rate와 batch size의 비례성도 있다. 이는 learning rate를 줄이는 방법을 통해 생기는 문제인 global optimum을 찾지 못하고 local minima에 빠지는 문제를 해결할 수 있게 된다.
 
 ### 3) Transfer Learning
 
 ![image](https://github.com/hoootteok2/aix_project/assets/168548944/fe381e92-4784-4180-be54-37c261bb9c87)
 
-전이학습 Transfer Learning이란 이미 학습된 모델을 기반으로 새로운 데이터 셋에 재학습 시키는 방법이다. 이는 모델을 처음부터 학습하는 것보다 더 빠르고 효율적으로 학습할 수 있게 해준다. 이 프로젝트는 COCO dataset 으로 pretrained된 yolov7.고 ASL_detection.py를 실행했다.
-웹캠에서 손 동작을 인식 시켜 랜덤한 6가지 문자 Y, V, W, L, R, I의 시현 영상이다.
+전이학습 Transfer Learning이란 이미 학습된 모델을 기반으로 새로운 데이터 셋에 재학습 시키는 방법이다. 이는 모델을 처음부터 학습하는 것보다 더 빠르고 효율적으로 학습할 수 있게 해준다. 이 프로젝트는 COCO dataset 으로 pretrained된 yolov7.pt 를 train 하는 과정에서 이용했다.
+
+test와 train codes는 아래와 같다.
+
+```
+!python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
+
+!python test.py --weights runs/train/exp6/weights/best.pt --data dataset/data.yaml --img-size 416 --batch-size 16 --device 0
+```
+
 
 
 IV. Results & Evaluation & Analysis
@@ -135,7 +143,7 @@ IV. Results & Evaluation & Analysis
 
 https://youtu.be/Mds_EWV29I0?si=EFwF-B9OAF_5ZHXp
 
-ASL 제스처 중 랜덤함 6가지 제스처를 웹캠에 인식시켰다. 인식시킨 제스처는 Y, V, W, L, R, I 이다.
+ASL_detection.py를 실행시켰으며 ASL 제스처 중 랜덤함 6가지 제스처를 웹캠에 인식시켰다. 인식시킨 제스처는 Y, V, W, L, R, I 이다.
 
 
 ### 2) Evaluation & Analysis
@@ -177,6 +185,7 @@ F1 Score은 모델의 전체적인 성능을 평가하는 지표이며 정밀도
 
 좌측 그래프의 mAP@0.5는 0.378, 우측 그래프는 0.776이며 동시에 좌측 그래프에 비해 우측 그래프가 높은 Precision과 recall을 보인다.
 
+즉, 전반적으로 batch size 16일 때 batch size 8 일때보다 모델의 성능이 더 우수했다.
 
 V. Related Work
 ==================
