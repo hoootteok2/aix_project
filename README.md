@@ -105,7 +105,7 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
   
 - Batch Size : 한 번에 학습하는 데이터 샘플의 수
 
-- Epochs : 전체 데이터 셋 학 반복 횟수
+- Epochs : 전체 데이터셋 학습 반복 횟수
 
 우리가 진행할 프로젝트에서는 Learning Rate를 유지하며 Batch size를 증가시키는 방법으로 선택할 것이다.
 이는 상기 논문(Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.)을 기반으로 진행된다.
@@ -117,18 +117,22 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 
 ### 3) Settings & Codes
 
-- 실행환경
+- Settings
 
 실행 환경은 google colab과 로컬 컴퓨터를 사용하였다.
-google colab에서
+google colab에서 Tesla T4를 사용하였다.
 
+로컬 컴퓨터 환경에서는 RTX 2060 super를 사용하였다.
 
+개발 환경은 다음과 같다.
 
+cuda 11.7.0
 
-- 실행코드(prompt/python) - 간단하게
+cudnn 8.5.0
 
-hyper parameter tuning은 batch size 조절
+- Codes
 
+Methodology의 hyperparameter tuning에 따라, learning rate 를 0.001 고정, batch size를 증가시켜 다음 train.py를 실행시킨다.
 
 
 
