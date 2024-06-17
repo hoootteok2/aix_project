@@ -10,6 +10,14 @@ Members
   
 : 참고 자료 조사, 코드 작성 및 검토, 발표 대본 준비 
 
+발표 영상
+==========
+
+Results Video
+==========
+https://youtu.be/Mds_EWV29I0?si=EFwF-B9OAF_5ZHXp
+
+
 I. Proposal (Option 1)
 =============================
 ### Motivation: Why are you doing this?
