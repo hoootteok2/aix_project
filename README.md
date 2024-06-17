@@ -28,6 +28,10 @@ II. Datasets
 
 https://public.roboflow.com/object-detection/american-sign-language-letters/1
 
+
+<img src="https://github.com/hoootteok2/aix_project/assets/168548944/4dec0d96-3973-4cf9-8138-ec9c630ce13b" width="50%">
+
+
 ASL이란 American Sign Language로, 미국과 캐나다에 살고 있는 농인들을 위한 수어이다. 
 우리는 이 ASL image datasets을 Roboflow에서 제공하는 것으로 사용했다.
 Robflow에서 제공하는 데이터셋들은 이미지 주석, 데이터 전처리, 증강 및 다양한 지원들을 제공하는 사이트이므로 본 프로젝트에서 유연하게 데이터셋을 이용할 수 있다.
