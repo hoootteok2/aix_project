@@ -3,8 +3,10 @@ Title: YOLOv7을 이용한 수어 번역기
 Members
 ===========
 * 송서빈(융합전자공학부/2020059189) : skmssb@hanyang.ac.kr
-* 이예림(연극영화과/2018034057) : sdyerim@naver.com
+: 자료조사, 코드 작성 및 실행, 발표
 
+* 이예림(연극영화과/2018034057) : sdyerim@naver.com
+: 자료 조사, 코드 작성 및 검, 발표 대본 준비 
 
 I. Proposal (Option 1)
 =============================
@@ -113,13 +115,14 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 일반적으로 하이퍼파라미터 튜닝은 batch size를 고정하고 learning rate를 줄이는 방법을 사용하는데 이와 다르게 learning rate를 고정하고 batch size를 키우는 방법을 선택하면 위 그림과 같이 업데이트 할 parameter update수가 적어지면서 동시에 짧은 시간 내에 테스트의 정확도를 크게 변화 없이 빠르게 학습할 수 있다.
 
 
-### 3) Settings & Codes - hyper parameter tunings with transfer learning
+### 3) Settings & Codes
 
 - 실행환경
 
-google colab, anaconda prompt(나중에 버전들 쭉 나열해놓기)
+실행 환경은 google colab과 로컬 컴퓨터를 사용하였다.
+google colab에서
 
-gpu(tpu2 이미지 첨부)
+
 
 
 - 실행코드(prompt/python) - 간단하게
