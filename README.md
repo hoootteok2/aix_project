@@ -2,11 +2,13 @@ Title: YOLOv7을 이용한 수어 번역기
 ==========
 Members
 ===========
-* 송서빈(융합전자공학부/2020059189) : skmssb@hanyang.ac.kr
-: 자료조사, 코드 작성 및 실행, 발표
+* 송서빈(융합전자공학부/2020059189) skmssb@hanyang.ac.kr
+  
+: 자료 조사 및 정리, 코드 작성 및 실행, 발표
 
-* 이예림(연극영화과/2018034057) : sdyerim@naver.com
-: 자료 조사, 코드 작성 및 검, 발표 대본 준비 
+* 이예림(연극영화과/2018034057) sdyerim@naver.com
+  
+: 참고 자료 조사, 코드 작성 및 검토, 발표 대본 준비 
 
 I. Proposal (Option 1)
 =============================
@@ -122,43 +124,7 @@ ELAN(Efficient Layer Aggregation Networks)는 특징 추출 및 집계에 효율
 
 ![image](https://github.com/hoootteok2/aix_project/assets/168548944/fe381e92-4784-4180-be54-37c261bb9c87)
 
-전이학습 Transfer Learning이란 이미 학습된 모델을 기반으로 새로운 데이터 셋에 재학습 시키는 방법이다. 이는 모델을 처음부터 학습하는 것보다 더 빠르고 효율적으로 학습할 수 있게 해준다. 이 프로젝트는 COCO dataset 으로 pretrained된 yolov7.pt 가중치를 이용할 것이다.
-
-이 외에도, output layer를 삭제 및 수정하거나 기존 layer들의 가중치들을 고정시키는 방법을 통하여 모델을 효율적으로 학습시킬 수 있다.
-
-
-### 4) Settings & Codes
-
-- Settings
-
-실행 환경은 google colab과 로컬 컴퓨터를 사용하였다.
-google colab에서 Tesla T4를 사용하였다.
-
-로컬 컴퓨터 환경에서는 RTX 2060 super를 사용하였다.
-
-개발 환경은 다음과 같다.
-
-cuda 11.7.0
-
-cudnn 8.5.0
-
-- Codes
-
-Methodology의 hyperparameter tuning에 따라, learning rate 를 0.01 고정, batch size를 증가시켜 다음 train.py를 실행시킨다.
-
-```
-!python train.py --img 416 --batch-size 16 --epochs 50 --data dataset/data.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7.pt' --device 0
-```
-
-
-
-IV.  Results & Evaluation & Analysis
-=====================
-  
-###  1) Results 
-
-https://youtu.be/Mds_EWV29I0
-
+전이학습 Transfer Learning이란 이미 학습된 모델을 기반으로 새로운 데이터 셋에 재학습 시키는 방법이다. 이는 모델을 처음부터 학습하는 것보다 더 빠르고 효율적으로 학습할 수 있게 해준다. 이 프로젝트는 COCO dataset 으로 pretrained된 yolov7.고 ASL_detection.py를 실행했다.
 웹캠에서 손 동작을 인식 시켜 랜덤한 6가지 문자 Y, V, W, L, R, I의 시현 영상이다.
 
 
@@ -215,7 +181,7 @@ https://www.plugger.ai/blog/yolov7-architecture-explanation
 
 https://blog.roboflow.com/yolov7-breakdown/
 
-- for display algorithm
+- for ASL_detection.py
 
 opencv
 
@@ -227,4 +193,10 @@ opencv
 VI. Conclusion: Discussion
 =======================
 
+본 프로젝트를 통해 YOLOv7에 ASL 데이터 셋을 학습시키고 학습된 모델을 이용해 웹캠의 손동작을 인식시켜보았다. Model Training에서는 batch size 가 8일때보다 batch size 16일 때가 모델의 성능이 더 뛰어났음을 모델 성능 평가 자료들을 통해 확인할 수 있었다.
+
+하지만, 대부분의 손의 제스처는 잘 인식 되었지만, 주먹을 쥔 포즈(A, E, M, S)같을 경우 인식이 잘 되지 않는다는 문제를 발견하였다. 따라서 이 문제를 해결하기 위해서는 모델의 정확도를 향상시켜야 함을 알 수 있다.
+이 문제의 개선 방안으로는 Transfer learning을 이용한 다음과 같이 제시할 수 있다.
+
+먼저, 위 프로젝트를 통해 사전 학습된 가중치 best.pt를 모델 학습에 그대로 이용한다. 이 때 모델의 구조를 수정하는데, output layer를 모델 클래스의 수 만큼 조절 한 후 새롭게 구성된 ASL Datsets으로 재학습 시킬 것이다. 이런 접근 방식을 이용하면 모델이 주먹 제스처를 더욱 정확히 인식할 수 있을 것이라고 기대한다.
 
