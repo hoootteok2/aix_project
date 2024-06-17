@@ -151,15 +151,17 @@ Methodology의 hyperparameter tuning에 따라, learning rate 를 0.01 고정, b
 IV.  Results & Evaluation & Analysis
 =====================
   
-###  Results 
+###  1) Results 
 
 - final video (url)
 
 
-### Evaluation & Analysis
+### 2) Evaluation & Analysis
 
  learning rate를 0.01, epochs로 fiexed, batch size 8, 16 두 가지 경우를 비교한다.
 왼쪽은 batch size 8의 test.py의 결과, 오른쪽은 batch size 16의 test.py결과로 고정한다.
+
+이때, x축 값으로 주로 confidence를 이용할 것이며 confidence는 객체 탐지 모델에서 예측된 객체가 실제로 그 객체일 확률을 나타내는 값이고 0과 1 사이의 실수값으로 표현한다.
 
 - Confusion Matrix
 
@@ -167,7 +169,31 @@ IV.  Results & Evaluation & Analysis
 
 <img width="834" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/ffc70b73-2477-45b3-8de4-61413b9896e1">
 
+두 혼동 행렬을 비교하면 우측 그래프 batch size 16일 때가 좌측 그래프 bach size 8 일때보다 확연히 대각선의 요소들이 더 많이 차지됨을 확인할 수 있다. 즉 batch size 8 일 때보다 더 클래스를 정확히 예측했음을 나타낸다.
 
+- F1 Score vs Confidence Curve
+
+F1 Score은 모델의 전체적인 성능을 평가하는 지표이며 정밀도와 재현율의 조화 평균 값이다.
+
+<img width="848" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/de129868-137e-4d83-bd33-72d2550b3c4c">
+
+좌측 그래프의 F1 최대 스코어와 그 때의 confidence는 각각 0.35, 0.1333이고 우측 그래프의 F1 최대 스코어와 그 때의 confidence는 0.60, 0.224이다. 이는 우측 그래프의 모델인 batch size 16이 더 좋은 성능을 보임을 의미한다. 또한 좌측 그래프의 비해 더 안정적으로 높은 F1 스코어를 유지함을 볼 수 있다.
+
+- Precision vs Confidence Curve
+
+모델이 예측한 양성 샘플 중 실제로 양성인 샘플의 비율인 precision을 보인 그래프이다. 
+
+<img width="731" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/1c178508-97a8-4243-bec7-2ea6da751bc0">
+
+좌측 그래프의 최대 precision과 그 때의 confidence는 0.922, 0.732이고 우측은 1.00, 0.843이다. 특히 좌측 그래프는 낮은 신뢰도를 유지하다가 confidence 0.4에서 급격히 증가하는 반면, 우측 그래프에서는 precision이 꾸준히 상승하는 개형을 보여준다. 즉, batch size 16 모델이 더 높은 성능을 보인다.
+
+- Precision-Recall Curve
+
+정밀도와 재현율 간의 관계를 보여주는 그래프이며 모델의 최적 성능 지점을 파악할 수 있게 해준다. 이때 mAP는 여러 클래스별로 얼마나 잘 수행되는지를 나타내주는 종합 성능 지표이다.
+
+  <img width="826" alt="image" src="https://github.com/hoootteok2/aix_project/assets/168548944/5dec971a-1bef-43ee-a90a-9130adead189">
+
+좌측 그래프의 mAP@0.5는 0.378, 우측 그래프는 0.776이며 동시에 좌측 그래프에 비해 우측 그래프가 높은 Precision과 recall을 보인다.
 
 
 V. Related Work
@@ -190,7 +216,6 @@ opencv
 - Hyper parameter tuning
 
  Smith, S. L., Kindermans, P.-J., Ying, C., & Le, Q. V. (2021). Don't decay the learning rate, increase the batch size. Google Brain.
-
 
 
 VI. Conclusion: Discussion
